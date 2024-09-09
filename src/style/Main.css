@@ -1,0 +1,35 @@
+.main{
+    background-color: blue;
+    display: grid;
+    grid-area: main;
+}
+.section{
+    grid-area: section;
+    display: grid;
+}
+hr{
+    border: 0;
+    border-top: 1px solid orange;
+}
+.main_node{
+    padding:10px;
+    box-sizing: border-box;
+}
+@media (min-width: 1200px){
+    .main{
+        grid-template-areas:
+        "clock"
+        "nav"
+        "section";
+        grid-template-rows: 4rem 2rem 1fr;
+    }
+    .section{
+        grid-template-areas:
+        ". main_node .";
+        grid-template-columns: 20rem 1fr 20rem;
+        grid-template-rows: 40rem;
+    }
+}
+.display{
+    grid-area: display;
+}

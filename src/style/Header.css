@@ -1,0 +1,26 @@
+.header{
+    background-color:red;
+    position:sticky;
+    top: 0;
+    grid-area: header;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    height: 3.75rem;
+}
+@media (min-width: 75rem) {
+    .header {
+        padding: 0 calc(calc(calc(100vw - 75rem) / 2) + 1rem);
+    }
+}
+.Auth > ul{
+    margin: 0;
+    font-size: 1rem;
+    list-style: none;
+    width: 8rem;
+    justify-content: space-between;
+    display: flex;
+}
+.Auth > ul,li {margin:0; padding:0;}
