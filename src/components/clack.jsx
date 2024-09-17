@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
-const Clack = () => {
-  const [clock, setClock] = useState(0);
+const Clock = () => {
+  const [clock, setClock] = useState(new Date());
   useEffect(()=>{
     const time = setInterval(()=>{
       setClock(new Date());
@@ -9,7 +9,7 @@ const Clack = () => {
     return (() => clearInterval(time))
   },[]);
   return (
-    <h1 className="clock">{clock.toLocaleString().slice(11, 22)}</h1>
+    <h1 className="clock">{clock.toLocaleString()}</h1>
   )
 }
-export default Clack;
+export default Clock;

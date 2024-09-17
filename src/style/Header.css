@@ -1,5 +1,6 @@
 .header{
-    background-color:red;
+    z-index: 999;
+    background-color:cornflowerblue;
     position:sticky;
     top: 0;
     grid-area: header;

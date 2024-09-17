@@ -1,7 +1,11 @@
 .main{
-    background-color: blue;
+    background-color: lightskyblue;
     display: grid;
     grid-area: main;
+    border-radius: 40px;
+}
+.meun{
+    grid-area: nev;
 }
 .section{
     grid-area: section;
@@ -11,11 +15,30 @@ hr{
     border: 0;
     border-top: 1px solid orange;
 }
+.clock{
+    position: relative;
+    top:-5rem;
+    z-index: 1;
+    transition: all 0.5s;
+}
 .main_node{
+    position: relative;
+    top: calc(50% - 20px);
     padding:10px;
     box-sizing: border-box;
+    height: 40px;
+    transition: background-color 0.2s,
+    height 0.7s ease-in-out,
+    top 0.7s ease-in-out;
 }
-@media (min-width: 1200px){
+.Marker_list{
+    display: none;
+    grid-area: marker_list;
+    transition: left 0.5s ;
+    position: relative;
+    left: -6rem;
+}
+@media (min-width: 51rem){
     .main{
         grid-template-areas:
         "clock"
@@ -25,10 +48,12 @@ hr{
     }
     .section{
         grid-template-areas:
-        ". main_node .";
-        grid-template-columns: 20rem 1fr 20rem;
+        ". main_node marker_list";
+        grid-template-columns: 1fr 35rem 1fr;
         grid-template-rows: 40rem;
     }
+}
+@media (max-width: 39.375rem){
 }
 .display{
     grid-area: display;

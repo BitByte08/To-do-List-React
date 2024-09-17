@@ -1,0 +1,26 @@
+.marker{
+    height: 5rem;
+    width: 8rem;
+    position: relative;
+    left: -6rem;
+    top: 2rem;
+    margin-top: 1rem;
+    transition: left 0.2s ;
+}
+#true{
+    left: -5rem;
+    transition: left 0.2s ;
+}
+#true:hover{
+    left: -4rem;
+    transition: left 0.2s ;
+}
+.marker:hover{
+    left: -4rem;
+    transition: left 0.2s ;
+}
+.marker>div{
+    height: 100%;
+    width: 100%;
+    border-radius: 1rem;
+}

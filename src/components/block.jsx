@@ -1,8 +1,14 @@
-import '../style/Block.css'
 import React from "react";
-const Block = ({name,children}) =>{
+const Block = ({color,name,children}) =>{
+  let style = {
+    backgroundColor: color,
+    gridArea:name,
+    zIndex: 999,
+    margin: "20px",
+    borderRadius: "20px"
+  };
   return (
-    <article className={`${name}`} style={{gridArea:`${name}`}}>
+    <article className={`${name}`} style={style}>
       {children}
     </article>
   );

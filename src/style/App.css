@@ -1,5 +1,6 @@
 body{
   overflow-x: hidden;
+  background-color: cornflowerblue;
 }
 #root {
   position: relative;
@@ -17,4 +18,9 @@ body{
     grid-template-rows: 3.75rem 1fr;
     grid-template-columns: 1fr 75rem 1fr;
   }
+}
+@media (max-width: 75rem){
+  #root{
+    grid-template-rows: 3.75rem 1fr;
+    grid-template-columns: 0 100% 0;}
 }
