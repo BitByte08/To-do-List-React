@@ -24,7 +24,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({children}) => {
             <Sidebar />
             <div style={ContainerStyle}>
                 <section style={SectionStyle}>
-                    <Calendar />
+                    <Calendar height={"50%"}/>
                 </section>
                 <section style={SectionStyle}>{children}</section>
             </div>
