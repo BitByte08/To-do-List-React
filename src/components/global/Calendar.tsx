@@ -1,13 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import useCalendar from "@/hooks/useCalendar.ts";
-import dayjs from "dayjs";
+import DayButton from '@/components/Calendar/DayButton.tsx'
 
 
 const Calendar: React.FC = () => {
-    const {calendarData, year, month, Up, Down} = useCalendar();
-    useEffect(() => {
-        console.log(calendarData);
-    }, [calendarData]);
+    const {data, year, month, day, setDay, Up, Down} = useCalendar();
+
     const ContainerStyle: React.CSSProperties = {
         width: "100%",
         height: "100%",
@@ -15,7 +13,7 @@ const Calendar: React.FC = () => {
     const CalendarStyle: React.CSSProperties = {
         display: "grid",
         gridTemplateColumns: "repeat(7, 1fr)",
-        gridTemplateRows: "repeat(7, 1fr)",
+        gridTemplateRows: "repeat(6, 1fr)",
         height: "100%",
         width: "100%",
     }
@@ -28,12 +26,18 @@ const Calendar: React.FC = () => {
                 <p>{month}</p>
             </header>
             <section style={CalendarStyle}>
-                {calendarData && calendarData.map((week, i) =>
-                    week.map((day, j) => {
+                {data && data.map((cWeek, i) =>
+                    cWeek.map((cDay, j) => {
+
                         return (
-                            <div key={(i+1)*(j+1)}>
-                                {day}
-                            </div>
+                            <DayButton
+                                key={`${i}-${j}`}
+                                value={cDay}
+                                isSelected={cDay === day}
+                                onClick={() => {
+                                    if (cDay !== day) setDay(cDay);
+                                }}
+                            />
                         )
                     }))}
             </section>

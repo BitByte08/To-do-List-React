@@ -2,9 +2,10 @@ import {useState, useEffect} from 'react';
 import dayjs from "dayjs";
 
 const useCalendar = () => {
-    const [calendarData, setCalendarData] = useState<Array<Array<number>> | null>(null);
+    const [data, setData] = useState<Array<Array<number>> | null>(null);
     const [year, setYear] = useState<number | null>(null);
     const [month, setMonth] = useState<number | null>(null);
+    const [day, setDay] = useState<number | null>(null);
     const generateCalendar = (year, month) => {
         console.log(year, month);
         const start = dayjs(`${year}-${month}-01`);
@@ -19,12 +20,13 @@ const useCalendar = () => {
         return weeks;
     }
     useEffect(() => {
-        if(year !== null && month !== null) setCalendarData(generateCalendar(year, month));
+        if(year !== null && month !== null) setData(generateCalendar(year, month));
     }, [year, month]);
     useEffect(() => {
         setYear(dayjs().$y);
         setMonth(dayjs().$M);
-    }, [setYear, setMonth]);
+        setDay(dayjs().$D);
+    }, [setYear, setMonth, setDay]);
     const Up = () => {
         setMonth(month + 1);
         if(month > 12){
@@ -40,11 +42,13 @@ const useCalendar = () => {
         }
     }
     return {
-        calendarData,
+        data,
         year,
         month,
+        day,
+        setDay,
         Up,
-        Down,
+        Down
     }
 }
 
